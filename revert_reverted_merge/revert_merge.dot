@@ -1,0 +1,29 @@
+digraph revert_merge{
+    node [shape="Mrecord";style=filled;fillcolor=gray99;fixedsize=true;width=1;height=0.3;penwidth =0.1]
+    rankdir=RL;
+    C1;
+    C2;
+    C3;
+    C4;
+    C5;
+    C6;
+    M;
+    M1[label="^M"]
+    topic[shape="record";style=filled;fillcolor = firebrick1;fontcolor=white];
+    master[shape="record";style=filled;fillcolor = firebrick1];
+    HEAD[shape="record";style=filled; fillcolor = cyan4];
+
+    C2->C1;
+    C3->C2;
+    C4->C3;
+    topic->C4
+    C5->C2;
+    C6->C5;
+    M->C6;
+    M->C4;
+    M1->M;
+    master->M1;
+    HEAD->master;
+    {rank =same ; master;M1;HEAD;}
+    {rank =same ; topic;C4;}
+}
